@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="style.css" />
+      <link href="dist/output.css" rel="stylesheet" />
+      <title>Tic Tac Toe</title>
+   </head>
+   <body class="relative">
+      <!-- <button onclick="snackFunc()">Show Snackbar</button> -->
+
+      <div id="snackbar">It's not your turn</div>
+      <div
+         class="playersBoard grid grid-cols-3 w-full justify-items-center hidden">
+         <div class="grid pointBoard w-44 h-40 bg-white rounded-b-2xl p-5">
+            <div
+               id="opponentName"
+               class="pointTitle text-3xl text-yellow-400 text-center"
+               id="opponentPoint">
+               opponentName
+            </div>
+            <div
+               class="text-6xl text-black text-center"
+               id="opponentPointNumber">
+               0
+            </div>
+         </div>
+         <div>
+            <div
+               class="pointTitle text-5xl text-yellow-400 text-center mt-8"
+               id="roundsLeftTitle">
+               rounds left :
+               <span id="roundsLeft"></span>
+            </div>
+            <div
+               class="pointTitle-Small text-3xl text-white text-center mt-8"
+               id="turnTitle">
+               Turn :
+               <span id="turnName"></span>
+            </div>
+         </div>
+
+         <div class="grid pointBoard w-44 h-40 bg-white rounded-b-2xl p-5">
+            <div class="pointTitle text-3xl text-yellow-400 text-center">
+               You
+            </div>
+            <div class="text-6xl text-black text-center" id="MyPointNumber">
+               0
+            </div>
+         </div>
+      </div>
+      <div class="mt-24 p-5 rounded-xl" id="boxreal">
+         <div class="grid grid-cols-1">
+            <div class="">
+               <p id="userCont">
+                  You :
+                  <span id="user"></span>
+               </p>
+               <p id="oppNameCont">
+                  Opponent :
+                  <span id="oppName"></span>
+               </p>
+            </div>
+
+            <p id="valueCont">
+               You are plaing as
+               <span id="value"></span>
+            </p>
+
+            <p id="whoTurn">X's Turn</p>
+            <span class="grid enterName">
+               <div
+                  class="grid text-5xl text-center items-center justify-center mt-5">
+                  <label
+                     for="nameInput"
+                     class="title text-yellow-400"
+                     id="nameTitle">
+                     Enter Your Name
+                  </label>
+                  <input
+                     class="gameInput w-72 items-center m-auto mt-10 mb-10 rounded-xl text-3lg px-5 py-2"
+                     type="text"
+                     id="nameInput" />
+               </div>
+
+               <button
+                  class="gameButton bg-yellow-400 m-auto mb-5 mt-10 p-5 w-36 rounded-xl text-xl text-white"
+                  id="find">
+                  Battle
+               </button>
+            </span>
+
+            <!-- ------------------------------ -->
+
+            <span class="enterRound hidden">
+               <div
+                  class="grid text-5xl text-center items-center justify-center mt-5">
+                  <label
+                     for="roundInput"
+                     class="title text-yellow-400"
+                     id="roundInputTitle">
+                     Round Number
+                  </label>
+                  <input
+                     class="gameInput w-36 items-center m-auto mt-10 mb-10 rounded-xl text-3lg px-5 py-2"
+                     type="text"
+                     id="roundInput" />
+                  <button
+                     class="gameButton gameInput bg-yellow-400 m-auto mb-5 mt-10 p-5 w-36 rounded-xl text-xl text-white"
+                     id="ready">
+                     Ready
+                  </button>
+               </div>
+            </span>
+            <img
+               class="m-auto mt-10 w-36"
+               src="loading2.gif"
+               alt="loading"
+               id="loading" />
+
+            <div class="m-auto hidden" id="bigCont">
+               <div
+                  class="grid grid-cols-3 justify-items-center w-72 gap-x-20 gap-y-10"
+                  id="cont">
+                  <button id="btn1" class="btn"></button>
+                  <button id="btn2" class="btn"></button>
+                  <button id="btn3" class="btn"></button>
+                  <button id="btn4" class="btn"></button>
+                  <button id="btn5" class="btn"></button>
+                  <button id="btn6" class="btn"></button>
+                  <button id="btn7" class="btn"></button>
+                  <button id="btn8" class="btn"></button>
+                  <button id="btn9" class="btn"></button>
+               </div>
+            </div>
+            <button
+               class="gameButton bg-yellow-400 m-auto mb-5 mt-10 p-5 w-48 rounded-xl text-xl text-white hidden"
+               id="lobbyButton">
+               Back Lobby
+            </button>
+         </div>
+      </div>
+
+      <script src="/socket.io/socket.io.js"></script>
+      <script src="main.js"></script>
+   </body>
+</html>

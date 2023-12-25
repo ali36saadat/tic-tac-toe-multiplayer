@@ -1,0 +1,204 @@
+@font-face {
+   font-family: "TicTacToeFont";
+   src: url("/CREABBB_.TTF");
+}
+
+* {
+   font-family: TicTacToeFont;
+   margin: 0;
+   padding: 0;
+}
+
+body {
+   background-image: url("/background.png");
+   background-repeat: no-repeat;
+   background-attachment: fixed;
+   background-size: cover;
+   display: grid;
+   place-items: center;
+}
+
+h1 {
+   margin: 50px 0 50px 0;
+   font-size: 3rem;
+}
+
+input {
+   margin-bottom: 20px;
+   padding: 5px;
+   font-size: 1.2rem;
+}
+
+button {
+   font-size: 1.2rem;
+   margin-bottom: 10px;
+}
+
+img {
+   width: 30px;
+}
+
+#cont {
+   /* display: grid;
+   grid-template-columns: 1fr 1fr 1fr;
+   border: 2px solid red; */
+   /* height: 180px; */
+   /* width: 50vh; */
+   /* height: 50vh; */
+}
+
+.btn {
+   font-size: 4.5rem;
+   width: 100px;
+   height: 100px;
+   color: #fcd015;
+   text-shadow: -4px 4px rgba(0, 0, 0, 1), 2px -2px rgba(0, 0, 0, 1),
+      0px 2px rgba(0, 0, 0, 1);
+   cursor: pointer;
+   background-color: #c9f9fc;
+   box-shadow: -4px 4px 0px 3px #000000, 0px 4px 0px 3px #000000,
+      -4px 0px 0px 3px #000000, 0px 0px 0px 3px #000000;
+   border-radius: 6px;
+}
+
+/* .btn:active {
+   font-size: 2rem;
+   width: 100px;
+   height: 100px;
+   color: white;
+   cursor: pointer;
+   background-color: #c9f9fc;
+   box-shadow: 0px 0px 0px 3px #000000;
+   border-radius: 6px;
+} */
+
+.btn:hover {
+   background-color: #b4e0e2;
+}
+
+.title {
+   text-shadow: -5px 5px #000000, 0px 5px #000000, -5px 0px #000000;
+}
+
+#boxreal {
+   box-shadow: -10px 10px 0px 5px #000000, 0px 10px 0px 5px #000000,
+      -10px 0px 0px 5px #000000, 0px 0px 0px 5px #000000;
+}
+
+.gameInput {
+   box-shadow: 0px 0px 0px 2px #000000;
+   background-color: #c9f9fc;
+   text-align: center;
+}
+
+.gameInput:disabled {
+   box-shadow: none;
+   background: none;
+}
+
+.gameButton {
+   box-shadow: -5px 5px 0px 2px #000000, 0px 5px 0px 2px #000000,
+      -5px 0px 0px 2px #000000, 0px 0px 0px 2px #000000;
+   text-shadow: -3px 3px #000000, 0px 3px #000000, -3px 0px #000000;
+}
+
+#boxreal {
+   background-image: url("/backgroundPattern.png");
+   background-size: 24rem;
+   width: 560px;
+}
+
+.pointBoard {
+   box-shadow: -5px 5px 0px 3px #000000, 0px 5px 0px 3px #000000,
+      -5px 0px 0px 3px #000000, 0px 0px 0px 3px #000000;
+   background-image: url("/backgroundPattern.png");
+   background-size: 10rem;
+}
+
+.pointTitle {
+   text-shadow: -3px 3px #000000, 0px 3px #000000, -3px 0px #000000;
+   overflow: hidden;
+}
+
+.pointTitle-Small {
+   text-shadow: -2px 2px #000000, 0px 2px #000000, -2px 0px #000000;
+   overflow: hidden;
+}
+
+#snackbar {
+   visibility: hidden;
+
+   align-items: center;
+   min-width: 125px;
+   top: 0;
+   /* margin-left: -125px; */
+   /* background-image: url("/backgroundPattern.png"); */
+   background-color: #fcd015;
+   background-opacity: 0.5;
+   background-size: 8rem;
+   color: #ffffff;
+   text-align: center;
+   border-radius: 2px;
+   padding: 12px 24px;
+   position: fixed;
+   /* z-index: 1; */
+   top: 30px;
+   font-size: 24px;
+   margin-top: 400px;
+   box-shadow: -4px 4px 0px 2px #000000, 0px 4px 0px 2px #000000,
+      -4px 0px 0px 2px #000000, 0px 0px 0px 2px #000000;
+   border-radius: 1rem;
+   text-shadow: -2px 2px #000000, 0px 2px #000000, -2px 0px #000000;
+   overflow: hidden;
+   user-select: none;
+}
+
+#snackbar.show {
+   visibility: visible;
+   -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+   animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+   from {
+      top: 0;
+      opacity: 0;
+   }
+   to {
+      top: 30px;
+      opacity: 1;
+   }
+}
+
+@keyframes fadein {
+   from {
+      top: 0;
+      opacity: 0;
+   }
+   to {
+      top: 30px;
+      opacity: 1;
+   }
+}
+
+@-webkit-keyframes fadeout {
+   from {
+      top: 30px;
+      opacity: 1;
+   }
+   to {
+      top: 0;
+      opacity: 0;
+   }
+}
+
+@keyframes fadeout {
+   from {
+      top: 30px;
+      opacity: 1;
+   }
+   to {
+      top: 0;
+      opacity: 0;
+   }
+}
