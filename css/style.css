@@ -1,6 +1,6 @@
 @font-face {
    font-family: "TicTacToeFont";
-   src: url("/CREABBB_.TTF");
+   src: url("../fonts/CREABBB_.TTF");
 }
 
 * {
@@ -10,7 +10,7 @@
 }
 
 body {
-   background-image: url("/background.png");
+   background-image: url("../img/background.png");
    background-repeat: no-repeat;
    background-attachment: fixed;
    background-size: cover;
@@ -103,7 +103,7 @@ img {
 }
 
 #boxreal {
-   background-image: url("/backgroundPattern.png");
+   background-image: url("../img/backgroundPattern.png");
    background-size: 24rem;
    width: 560px;
 }
@@ -111,7 +111,7 @@ img {
 .pointBoard {
    box-shadow: -5px 5px 0px 3px #000000, 0px 5px 0px 3px #000000,
       -5px 0px 0px 3px #000000, 0px 0px 0px 3px #000000;
-   background-image: url("/backgroundPattern.png");
+   background-image: url("../img/backgroundPattern.png");
    background-size: 10rem;
 }
 
@@ -131,8 +131,6 @@ img {
    align-items: center;
    min-width: 125px;
    top: 0;
-   /* margin-left: -125px; */
-   /* background-image: url("/backgroundPattern.png"); */
    background-color: #fcd015;
    background-opacity: 0.5;
    background-size: 8rem;
@@ -201,4 +199,14 @@ img {
       top: 0;
       opacity: 0;
    }
+}
+
+img {
+   user-select: none;
+   user-drag: none;
+   -drag: none;
+   -moz-user-select: none;
+   -webkit-user-drag: none;
+   -webkit-user-select: none;
+   -ms-user-select: none;
 }

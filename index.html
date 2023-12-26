@@ -3,13 +3,11 @@
    <head>
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <link rel="stylesheet" href="style.css" />
-      <link href="dist/output.css" rel="stylesheet" />
+      <link rel="stylesheet" href="css/style.css" />
+      <script src="https://cdn.tailwindcss.com"></script>
       <title>Tic Tac Toe</title>
    </head>
    <body class="relative">
-      <!-- <button onclick="snackFunc()">Show Snackbar</button> -->
-
       <div id="snackbar">It's not your turn</div>
       <div
          class="playersBoard grid grid-cols-3 w-full justify-items-center hidden">
@@ -115,7 +113,7 @@
             </span>
             <img
                class="m-auto mt-10 w-36"
-               src="loading2.gif"
+               src="../img/loading2.gif"
                alt="loading"
                id="loading" />
 
@@ -142,7 +140,8 @@
          </div>
       </div>
 
+      <!--  SCRIPTS  -->
       <script src="/socket.io/socket.io.js"></script>
-      <script src="main.js"></script>
+      <script src="../js/main.js"></script>
    </body>
 </html>

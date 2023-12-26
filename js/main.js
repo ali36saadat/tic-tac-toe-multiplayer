@@ -16,10 +16,6 @@ let name,
 const point = [0, 0]
 let allPlayersArr
 
-//------------------------
-
-//------------------------
-
 document.querySelector("#lobbyButton").addEventListener("click", function () {
    location.reload()
 })
@@ -43,7 +39,6 @@ document.querySelector("#find").addEventListener("click", function () {
 socket.on("find", (e) => {
    allPlayersArr = e.allPlayers
    roomNumber = e.allPlayers.at(-1).roomNumber
-   console.log(allPlayersArr)
 
    document.querySelector(".enterName").classList.add("hidden")
    document.querySelector(".enterRound").classList.remove("hidden")
@@ -106,20 +101,7 @@ socket.on("round", (e) => {
    turn()
 })
 
-// document.querySelectorAll(".btn").forEach((e) => {
-//    // e.onclick = null
-//    e.addEventListener("click", function () {
-//       e.classList.remove("cursor-default")
-//       e.classList.add("cursor-pointer")
-
-//       let value = document.getElementById("value").innerText
-//       e.innerText = value
-//       socket.emit("playing", { value: value, id: e.id, playerID: myID })
-//    })
-// })
-
 document.querySelectorAll(".btn").forEach((e) => {
-   // e.onclick = null
    e.addEventListener("click", function () {
       if (tip == myValue) {
          e.classList.remove("cursor-default")
@@ -149,14 +131,14 @@ socket.on("playing", (e) => {
 
    if (p1id != "") {
       document.getElementById(`${p1id}`).innerHTML =
-         '<img src="/X.png" alt="X" class="w-16 h-16 m-auto" />'
+         '<img src="../img/X.png" alt="X" class="w-16 h-16 m-auto" />'
       document.getElementById(`${p1id}`).value = "X"
       // document.getElementById(`${p1id}`).disabled = true
       // document.getElementById(`${p1id}`).style.color = "black"
    }
    if (p2id != "") {
       document.getElementById(`${p2id}`).innerHTML =
-         '<img src="/O.png" alt="O" class="w-16 h-16 m-auto" />'
+         '<img src="../img/O.png" alt="O" class="w-16 h-16 m-auto" />'
       document.getElementById(`${p2id}`).value = "O"
       // document.getElementById(`${p2id}`).disabled = true
       // document.getElementById(`${p2id}`).style.color = "black"
@@ -178,7 +160,6 @@ socket.on("playing", (e) => {
       p2id = ""
    }
 })
-
 function check() {
    document.getElementById("btn1").value == ""
       ? (b1 = "a")
