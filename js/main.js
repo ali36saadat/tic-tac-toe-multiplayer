@@ -1,25 +1,22 @@
-document.getElementById("loading").style.display = "none"
-document.getElementById("userCont").style.display = "none"
-document.getElementById("oppNameCont").style.display = "none"
-document.getElementById("valueCont").style.display = "none"
-document.getElementById("whoTurn").style.display = "none"
+//SOCKET IO
 const socket = io()
 
+//VARIABLES
 let name,
    myID,
    round,
    myValue,
+   myValueIcon,
    tip = 1,
    roomNumber,
-   snackbarValue = false
+   snackbarValue = false,
+   allPlayersArr
 
 const point = [0, 0]
-let allPlayersArr
 
-document.querySelector("#lobbyButton").addEventListener("click", function () {
-   location.reload()
-})
+//FUNCTIONS
 
+//FIND PLAYER (REQUEST)
 document.querySelector("#find").addEventListener("click", function () {
    name = document.querySelector("#nameInput").value
 
@@ -30,21 +27,23 @@ document.querySelector("#find").addEventListener("click", function () {
          id: myID,
       })
       document.getElementById("nameTitle").innerText = "Your Name"
-      document.querySelector("#loading").style.display = "block"
+      document.querySelector("#loading").classList.remove("hidden")
       document.getElementById("find").style.display = "none"
       document.getElementById("nameInput").disabled = true
    }
 })
 
+//FIND (RESPONSE)
 socket.on("find", (e) => {
    allPlayersArr = e.allPlayers
    roomNumber = e.allPlayers.at(-1).roomNumber
 
-   document.querySelector(".enterName").classList.add("hidden")
-   document.querySelector(".enterRound").classList.remove("hidden")
-   document.querySelector("#loading").style.display = "none"
+   document.querySelector(".entryName").classList.add("hidden")
+   document.querySelector(".entryRound").classList.remove("hidden")
+   document.querySelector("#loading").classList.add("hidden")
 })
 
+//ROUND (REQUEST)
 document.getElementById("ready").addEventListener("click", function () {
    let roundNumber = document.getElementById("roundInput").value
 
@@ -56,6 +55,7 @@ document.getElementById("ready").addEventListener("click", function () {
    }
 })
 
+//ROUND (RESPONSE)
 socket.on("round", (e) => {
    if (e.round <= 0) {
       round = Infinity
@@ -65,15 +65,14 @@ socket.on("round", (e) => {
 
    if (name != "") {
       document.getElementById("roundsLeft").innerText = round
-      document.querySelector(".playersBoard").classList.remove("hidden")
-      document.querySelector(".enterRound").classList.add("hidden")
-      document.getElementById("loading").style.display = "none"
+      document.querySelector(".playersPointsBoard").classList.remove("hidden")
+      document.querySelector(".entryRound").classList.add("hidden")
+      document.getElementById("loading").classList.add("hidden")
       document.getElementById("nameInput").style.display = "none"
       document.getElementById("find").style.display = "none"
       document.getElementById("nameInput").style.display = "none"
-      document.getElementById("bigCont").classList.remove("hidden")
+      document.getElementById("boardGame").classList.remove("hidden")
    }
-   let oppName
    let oppID
    let value
    const foundObject = allPlayersArr.find(
@@ -84,11 +83,13 @@ socket.on("round", (e) => {
       oppName = foundObject.p2.p2name
       value = foundObject.p1.p1value
       myValue = 1
+      myValueIcon = "X"
    } else {
       oppID = foundObject.p1.player1ID
       oppName = foundObject.p1.p1name
       value = foundObject.p2.p2value
       myValue = 2
+      myValueIcon = "O"
    }
 
    if (myValue === 1) {
@@ -96,20 +97,21 @@ socket.on("round", (e) => {
    } else {
       document.querySelector("#turnName").textContent = "Opponent"
    }
-   document.getElementById("opponentName").innerText = oppName
-   document.getElementById("value").innerText = value
    turn()
 })
 
+//PLAYING (REQUEST)
 document.querySelectorAll(".btn").forEach((e) => {
    e.addEventListener("click", function () {
       if (tip == myValue) {
          e.classList.remove("cursor-default")
          e.classList.add("cursor-pointer")
-
-         let value = document.getElementById("value").innerText
-         e.innerText = value
-         socket.emit("playing", { value: value, id: e.id, playerID: myID })
+         e.innerText = myValueIcon
+         socket.emit("playing", {
+            value: myValueIcon,
+            id: e.id,
+            playerID: myID,
+         })
       } else {
          e.classList.add("cursor-default")
          e.classList.remove("cursor-pointer")
@@ -118,6 +120,7 @@ document.querySelectorAll(".btn").forEach((e) => {
    })
 })
 
+//PLAYING (RESPONSE)
 socket.on("playing", (e) => {
    const foundObject = e.allPlayers[roomNumber]
 
@@ -131,17 +134,13 @@ socket.on("playing", (e) => {
 
    if (p1id != "") {
       document.getElementById(`${p1id}`).innerHTML =
-         '<img src="../img/X.png" alt="X" class="w-16 h-16 m-auto" />'
-      document.getElementById(`${p1id}`).value = "X"
-      // document.getElementById(`${p1id}`).disabled = true
-      // document.getElementById(`${p1id}`).style.color = "black"
+         '<img src="../img/O.png" alt="O" class="w-16 h-16 m-auto" />'
+      document.getElementById(`${p1id}`).value = "O"
    }
    if (p2id != "") {
       document.getElementById(`${p2id}`).innerHTML =
-         '<img src="../img/O.png" alt="O" class="w-16 h-16 m-auto" />'
-      document.getElementById(`${p2id}`).value = "O"
-      // document.getElementById(`${p2id}`).disabled = true
-      // document.getElementById(`${p2id}`).style.color = "black"
+         '<img src="../img/X.png" alt="X" class="w-16 h-16 m-auto" />'
+      document.getElementById(`${p2id}`).value = "X"
    }
 
    p1id = ""
@@ -232,7 +231,7 @@ function finishGame(num) {
    }
 
    if (round == 0) {
-      document.querySelector("#bigCont").classList.add("hidden")
+      document.querySelector("#boardGame").classList.add("hidden")
       document.querySelector("#lobbyButton").classList.remove("hidden")
 
       if (point[0] == point[1]) {
@@ -244,13 +243,10 @@ function finishGame(num) {
          document.querySelector("#turnTitle").innerText = "You Are #1"
       } else {
          document.querySelector("#roundsLeftTitle").innerText = "You Lose"
-         document.querySelector("#turnTitle").innerText = ""
+         document.querySelector("#turnTitle").innerText = "try again and win"
       }
    }
    if (num == 3 || round != 0) {
-      // setTimeout(() => {
-      //    resetBoard()
-      // }, 2000)
       resetBoard()
       turn()
    }
@@ -290,6 +286,10 @@ function snackFunc() {
       setTimeout(function () {
          snackbarValue = false
          x.className = x.className.replace("show", "")
-      }, 3000)
+      }, 2000)
    }
 }
+
+document.querySelector("#lobbyButton").addEventListener("click", function () {
+   location.reload()
+})

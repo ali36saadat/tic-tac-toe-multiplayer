@@ -1,8 +1,10 @@
+/* FONTS */
 @font-face {
    font-family: "TicTacToeFont";
    src: url("../fonts/CREABBB_.TTF");
 }
 
+/* TAGS */
 * {
    font-family: TicTacToeFont;
    margin: 0;
@@ -36,17 +38,16 @@ button {
 
 img {
    width: 30px;
+   user-select: none;
+   user-drag: none;
+   -drag: none;
+   -moz-user-select: none;
+   -webkit-user-drag: none;
+   -webkit-user-select: none;
+   -ms-user-select: none;
 }
 
-#cont {
-   /* display: grid;
-   grid-template-columns: 1fr 1fr 1fr;
-   border: 2px solid red; */
-   /* height: 180px; */
-   /* width: 50vh; */
-   /* height: 50vh; */
-}
-
+/* CLASS */
 .btn {
    font-size: 4.5rem;
    width: 100px;
@@ -61,28 +62,12 @@ img {
    border-radius: 6px;
 }
 
-/* .btn:active {
-   font-size: 2rem;
-   width: 100px;
-   height: 100px;
-   color: white;
-   cursor: pointer;
-   background-color: #c9f9fc;
-   box-shadow: 0px 0px 0px 3px #000000;
-   border-radius: 6px;
-} */
-
 .btn:hover {
    background-color: #b4e0e2;
 }
 
 .title {
    text-shadow: -5px 5px #000000, 0px 5px #000000, -5px 0px #000000;
-}
-
-#boxreal {
-   box-shadow: -10px 10px 0px 5px #000000, 0px 10px 0px 5px #000000,
-      -10px 0px 0px 5px #000000, 0px 0px 0px 5px #000000;
 }
 
 .gameInput {
@@ -102,7 +87,9 @@ img {
    text-shadow: -3px 3px #000000, 0px 3px #000000, -3px 0px #000000;
 }
 
-#boxreal {
+.boardPage {
+   box-shadow: -10px 10px 0px 5px #000000, 0px 10px 0px 5px #000000,
+      -10px 0px 0px 5px #000000, 0px 0px 0px 5px #000000;
    background-image: url("../img/backgroundPattern.png");
    background-size: 24rem;
    width: 560px;
@@ -127,19 +114,13 @@ img {
 
 #snackbar {
    visibility: hidden;
-
    align-items: center;
-   min-width: 125px;
    top: 0;
    background-color: #fcd015;
-   background-opacity: 0.5;
-   background-size: 8rem;
    color: #ffffff;
    text-align: center;
-   border-radius: 2px;
    padding: 12px 24px;
    position: fixed;
-   /* z-index: 1; */
    top: 30px;
    font-size: 24px;
    margin-top: 400px;
@@ -153,8 +134,8 @@ img {
 
 #snackbar.show {
    visibility: visible;
-   -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
-   animation: fadein 0.5s, fadeout 0.5s 2.5s;
+   -webkit-animation: fadein 0.5s, fadeout 0.5s 1.5s;
+   animation: fadein 0.5s, fadeout 0.5s 1.5s;
 }
 
 @-webkit-keyframes fadein {
@@ -199,14 +180,4 @@ img {
       top: 0;
       opacity: 0;
    }
-}
-
-img {
-   user-select: none;
-   user-drag: none;
-   -drag: none;
-   -moz-user-select: none;
-   -webkit-user-drag: none;
-   -webkit-user-select: none;
-   -ms-user-select: none;
 }
