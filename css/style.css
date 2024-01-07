@@ -50,15 +50,14 @@ img {
 /* CLASS */
 .btn {
    font-size: 4.5rem;
-   width: 100px;
-   height: 100px;
+   width: 4rem;
+   height: 4rem;
    color: #fcd015;
-   text-shadow: -4px 4px rgba(0, 0, 0, 1), 2px -2px rgba(0, 0, 0, 1),
-      0px 2px rgba(0, 0, 0, 1);
+   text-shadow: -2px 2px #000000, 0px 2px #000000, -2px 0px #000000;
    cursor: pointer;
    background-color: #c9f9fc;
-   box-shadow: -4px 4px 0px 3px #000000, 0px 4px 0px 3px #000000,
-      -4px 0px 0px 3px #000000, 0px 0px 0px 3px #000000;
+   box-shadow: -4px 4px 0px 2px #000000, 0px 4px 0px 2px #000000,
+      -4px 0px 0px 2px #000000, 0px 0px 0px 2px #000000;
    border-radius: 6px;
 }
 
@@ -67,7 +66,7 @@ img {
 }
 
 .title {
-   text-shadow: -5px 5px #000000, 0px 5px #000000, -5px 0px #000000;
+   text-shadow: -2px 2px #000000, 0px 2px #000000, -2px 0px #000000;
 }
 
 .gameInput {
@@ -82,22 +81,22 @@ img {
 }
 
 .gameButton {
-   box-shadow: -5px 5px 0px 2px #000000, 0px 5px 0px 2px #000000,
-      -5px 0px 0px 2px #000000, 0px 0px 0px 2px #000000;
-   text-shadow: -3px 3px #000000, 0px 3px #000000, -3px 0px #000000;
+   box-shadow: -4px 4px 0px 2px #000000, 0px 4px 0px 2px #000000,
+      -4px 0px 0px 2px #000000, 0px 0px 0px 2px #000000;
+   text-shadow: -2px 2px #000000, 0px 2px #000000, -2px 0px #000000;
 }
 
 .boardPage {
-   box-shadow: -10px 10px 0px 5px #000000, 0px 10px 0px 5px #000000,
-      -10px 0px 0px 5px #000000, 0px 0px 0px 5px #000000;
+   box-shadow: -4px 4px 0px 2px #000000, 0px 4px 0px 2px #000000,
+      -4px 0px 0px 2px #000000, 0px 0px 0px 2px #000000;
    background-image: url("../img/backgroundPattern.png");
    background-size: 24rem;
-   width: 560px;
+   width: 480px;
 }
 
 .pointBoard {
-   box-shadow: -5px 5px 0px 3px #000000, 0px 5px 0px 3px #000000,
-      -5px 0px 0px 3px #000000, 0px 0px 0px 3px #000000;
+   box-shadow: -4px 4px 0px 2px #000000, 0px 4px 0px 2px #000000,
+      -4px 0px 0px 2px #000000, 0px 0px 0px 2px #000000;
    background-image: url("../img/backgroundPattern.png");
    background-size: 10rem;
 }
@@ -113,22 +112,22 @@ img {
 }
 
 #snackbar {
-   visibility: hidden;
+   /* visibility: hidden; */
    align-items: center;
    top: 0;
    background-color: #fcd015;
    color: #ffffff;
    text-align: center;
-   padding: 12px 24px;
+   /* padding: 12px 24px; */
    position: fixed;
    top: 30px;
-   font-size: 24px;
+
+   /* font-size: 24px; */
    margin-top: 400px;
    box-shadow: -4px 4px 0px 2px #000000, 0px 4px 0px 2px #000000,
       -4px 0px 0px 2px #000000, 0px 0px 0px 2px #000000;
    border-radius: 1rem;
    text-shadow: -2px 2px #000000, 0px 2px #000000, -2px 0px #000000;
-   overflow: hidden;
    user-select: none;
 }
 
