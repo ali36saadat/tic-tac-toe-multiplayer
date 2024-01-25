@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta name="theme-color" content="#fcd015" />
+      <link rel="icon" href="../public/img/tabIcon.png" />
+      <link rel="stylesheet" href="../public/Stylesheets/style.css" />
+      <script src="https://cdn.tailwindcss.com"></script>
+      <title>Tic Tac Toe</title>
+   </head>
+   <body>
+      <!--  START PLAYERS POINTS  -->
+      <div
+         class="playersPointsBoard grid grid-cols-2 grid-rows-2 w-screen justify-items-center md:grid-cols-8 md:grid-rows-1 md:h-36 lg:h-40 hidden">
+         <!--  RIGHT SIDE  -->
+         <div
+            class="pointBoard rightPointBoard grid w-3/5 bg-white rounded-b-2xl p-2 md:w-4/5 md:rounded-b-3xl md:col-span-2 lg:w-52">
+            <div
+               id="opponentName"
+               class="pointTitle text-xl text-yellow-400 text-center md:text-2xl lg:text-3xl"
+               id="opponentPoint">
+               opponentName
+            </div>
+            <div
+               class="text-3xl text-black text-center md:text-4xl lg:text-5xl"
+               id="opponentPointNumber">
+               0
+            </div>
+         </div>
+
+         <!--  CENTER  -->
+         <div
+            class="col-span-2 centerPointBoard row-start-2 grid grid-rows-2 mt-4 h-24 md:col-span-1 md:row-start-1 md:col-start-3 md:col-span-4">
+            <div
+               class="pointTitle text-xl text-yellow-400 text-center mt-2 h-6 md:text-3xl md:h-12 lg:text-4xl lg:h-16"
+               id="roundsLeftTitle">
+               rounds left :
+               <span id="roundsLeft">INFINITY</span>
+            </div>
+            <div
+               class="pointTitle-Small text-xl text-white text-center mt-2 h-6 md:text-3xl md:h-12 md:mt-6 lg:text-4xl lg:h-16 lg:mt-8"
+               id="turnTitle">
+               Turn :
+               <span id="turnName">opponent</span>
+            </div>
+         </div>
+
+         <!--  LEFT SIDE  -->
+         <div
+            class="pointBoard leftPointBoard grid w-3/5 bg-white rounded-b-2xl p-2 md:w-4/5 md:rounded-b-3xl md:col-span-2 lg:w-52">
+            <div
+               class="pointTitle text-xl text-yellow-400 text-center md:text-2xl lg:text-3xl">
+               You
+            </div>
+            <div
+               class="text-3xl text-black text-center md:text-4xl lg:text-5xl"
+               id="MyPointNumber">
+               0
+            </div>
+         </div>
+      </div>
+      <!--  FINISH PLAYERS POINTS  -->
+
+      <!--  START BOARD  -->
+      <div
+         class="boardPage grid mt-12 p-5 rounded-xl w-2/3 top-36 text-xl md:w-1/2 lg:w-2/5 xl:w-1/3"
+         id="boardPage">
+         <div class="grid grid-rows-1">
+            <!--  NAME ENTRY PAGE  -->
+            <span class="entryName grid grid-rows-1" id="entryName">
+               <div
+                  class="grid grid-rows-1 text-center items-center justify-center my-2">
+                  <label
+                     class="title text-yellow-400 my-2 text-xl md:text-3xl lg:text-4xl"
+                     for="nameInput"
+                     id="nameTitle">
+                     Enter Your Name
+                  </label>
+                  <input
+                     class="gameInput w-2/3 items-center m-auto my-7 rounded-xl text-lg py-1 md:text-3xl lg:text-4xl md:py-2 md:w-2/3 md:rounded-2xl"
+                     type="text"
+                     id="nameInput" />
+                  <div id="searchForm">
+                     <button
+                        class="gameButton bg-yellow-400 m-auto my-2 mb-16 p-3 w-3/5 rounded-xl text-xl text-white md:p-5 md:text-3xl lg:text-4xl md:w-1/2 md:rounded-2xl"
+                        id="find">
+                        Battle
+                     </button>
+                  </div>
+                  <div class="hidden" id="inviteForm">
+                     <button
+                        class="gameButton bg-yellow-400 m-auto my-2 p-3 w-3/5 rounded-xl text-xl text-white md:p-5 md:text-3xl lg:text-4xl md:w-1/2 md:rounded-2xl"
+                        id="createRoomBtn">
+                        Create
+                     </button>
+                     <div
+                        class="grid grid-cols-5 mx-auto border-4 border-black w-40 rounded-xl mt-3 mb-2 md:w-52 md:mb-0">
+                        <input
+                           class="inputJoinRoom col-span-3 rounded-l-lg text-center text-sm md:text-xl md:p-1 placeholder-shown:text-xs placeholder-gray-500 md:placeholder-shown:text-base"
+                           placeholder="ROOM CODE"
+                           type="number"
+                           name=""
+                           id="roomCodeInput" />
+                        <button
+                           id="joinRoomBtn"
+                           class="joinBtn p-1 rounded-r-lg col-span-2 text-sm bg-yellow-400 text-white md:text-xl md:p-1">
+                           JOIN
+                        </button>
+                     </div>
+                  </div>
+                  <div class="relative mb-8 hidden" id="ticketBox">
+                     <img
+                        src="../public/img/ticket.png"
+                        class="w-28 md:w-36 lg:w-44 mx-auto"
+                        alt="Nature" />
+                     <div
+                        id="roomCode"
+                        class="text-block px-auto mx-auto absolute text-xl pt-2 md:text-2xl lg:text-3xl"></div>
+                  </div>
+                  <img
+                     class="m-auto w-16 md:w-32 lg:w-48 hidden"
+                     src="../public/img/loading.gif"
+                     alt="loadingGif"
+                     id="loadingGif" />
+               </div>
+
+               <div class="mx-auto" id="changeForm">
+                  <button
+                     id="Invite"
+                     class="changeForm w-40 text-sm mx-auto mt-5 mb-1 border-2 border-black rounded text-center md:w-56 md:border-4 md:text-lg lg:w-64 mx-auto lg:text-xl">
+                     JOIN/CREATE ROOM
+                  </button>
+               </div>
+            </span>
+
+            <!--  ROUND ENTRY PAGE  -->
+            <span class="entryRound hidden" id="entryRound">
+               <div
+                  class="grid grid-rows-1 text-center items-center justify-center my-2">
+                  <label
+                     for="roundInput"
+                     class="title text-yellow-400 my-2 text-xl md:text-3xl lg:text-4xl"
+                     id="roundInputTitle">
+                     Round Number
+                  </label>
+                  <input
+                     class="gameInput w-2/3 items-center m-auto my-7 rounded-xl text-lg py-1 md:text-3xl lg:text-4xl md:py-2 md:w-2/3 md:rounded-2xl"
+                     type="text"
+                     id="roundInput" />
+                  <button
+                     class="gameButton bg-yellow-400 m-auto my-2 p-3 w-3/5 rounded-xl text-xl text-white md:p-5 md:text-3xl lg:text-4xl md:w-1/2 md:rounded-2xl"
+                     id="ready">
+                     Ready
+                  </button>
+                  <img
+                     class="m-auto w-16 md:w-32 lg:w-48 hidden"
+                     src="public/img/wait.gif"
+                     alt="waitGif"
+                     id="waitGif" />
+               </div>
+            </span>
+
+            <!--  BOARD GAME  -->
+            <div class="flex justify-center m-auto hidden" id="boardGame">
+               <!--  BOARD  -->
+               <div
+                  class="board grid grid-cols-3 justify-items-center w-fulscreen gap-x-9 gap-y-6">
+                  <!-- START SNACKBAR  -->
+                  <div class="snackbar" id="snackbar">It's not your turn</div>
+                  <!-- END SNACKBAR  -->
+                  <button id="btn1" class="btn"></button>
+                  <button id="btn2" class="btn"></button>
+                  <button id="btn3" class="btn"></button>
+                  <button id="btn4" class="btn"></button>
+                  <button id="btn5" class="btn"></button>
+                  <button id="btn6" class="btn"></button>
+                  <button id="btn7" class="btn"></button>
+                  <button id="btn8" class="btn"></button>
+                  <button id="btn9" class="btn"></button>
+               </div>
+            </div>
+
+            <!--  BACK LOBBY BUTTON  -->
+            <button
+               class="gameButton bg-yellow-400 m-auto my-2 p-5 w-3/5 rounded-xl text-xl text-white hidden"
+               id="lobbyButton">
+               Back Lobby
+            </button>
+         </div>
+      </div>
+
+      <!--  START GAME INFORMATION  -->
+      <div
+         id="playersStatusSection"
+         class="grid grid-rows-1 bg-white mt-5 gap-2 text-2xl p-2 rounded-xl border-4 border-black">
+         <!--  ONLINE PLAYERS NUMBER  -->
+         <div class="flex items-center">
+            <img
+               class="w-6 h-6 mr-1"
+               src="../public/img/activeIcon.gif"
+               alt="" />
+            <div>Online Player :</div>
+            <div class="ml-1" id="onlinePlayersNumber">0</div>
+         </div>
+         <!--  MATCHES NUMBER  -->
+         <div class="flex items-center">
+            <img
+               class="w-6 h-6 mr-1"
+               src="../public/img/battleIcon.gif"
+               alt="" />
+            <div>Matches Number :</div>
+            <div class="ml-1" id="matchesNumber">0</div>
+         </div>
+      </div>
+      <!--  END GAME INFORMATION  -->
+      <!--  FINISH BOARD  -->
+
+      <!--  START ONLINE CHAT  -->
+      <div class="hidden" id="chatSection">
+         <button class="fixed left-5 bottom-5" id="chatBtn">
+            <img
+               class="w-12 h-12"
+               src="../public/img/chatIcon.gif"
+               alt="chatIcon" />
+         </button>
+
+         <div class="relative chatFont font-medium hidden" id="chatContainer">
+            <div
+               class="fixed rounded-lg bottom-6 left-8 fixed bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-sky-400 to-sky-200 from-blue-400 to-emerald-400 w-72 h-96 grid grid-rows-8 justify-items-center showBox"
+               id="chatBox">
+               <div class="relative h-full rounded-t-lg w-full bg-white">
+                  <div class="text-center text-4xl mt-1">Chat</div>
+                  <button class="absolute right-2 bottom-2" id="closeChatBtn">
+                     <img src="../public/img/closeIcon.png" alt="" />
+                  </button>
+               </div>
+               <div
+                  class="row-span-6 w-full pt-2 text-base overflow-auto flex flex-col"
+                  id="messages"></div>
+               <div class="w-full rounded-b-lg">
+                  <div
+                     class="flex items-center bg-white mx-2 px-2 rounded-full bg-opacity-40">
+                     <input
+                        class="w-full h-fit m-1 text-lg bg-none"
+                        type="text"
+                        placeholder="Start Typing..."
+                        id="messageInput" />
+                     <button id="SendBtn">
+                        <img
+                           class="opacity-75"
+                           src="../public/img/sendIcon.png"
+                           alt="sendIcon" />
+                     </button>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!--  END ONLINE CHAT  -->
+
+      <!--  SCRIPTS  -->
+      <script src="/socket.io/socket.io.js"></script>
+      <script src="public/js/main.js"></script>
+   </body>
+</html>
