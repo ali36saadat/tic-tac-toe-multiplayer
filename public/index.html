@@ -217,7 +217,7 @@
       <!--  FINISH BOARD  -->
 
       <!--  START ONLINE CHAT  -->
-      <div class="hidden" id="chatSection">
+      <div class="" id="chatSection">
          <button class="fixed left-5 bottom-5" id="chatBtn">
             <img
                class="w-12 h-12"
@@ -225,12 +225,15 @@
                alt="chatIcon" />
          </button>
 
-         <div class="relative chatFont font-medium hidden" id="chatContainer">
+         <div class="relative chatFont font-medium" id="chatContainer">
             <div
-               class="fixed rounded-lg bottom-6 left-8 fixed bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-sky-400 to-sky-200 from-blue-400 to-emerald-400 w-72 h-96 grid grid-rows-8 justify-items-center showBox"
+               class="fixed rounded-lg bottom-6 left-8 fixed w-72 h-96 grid grid-rows-8 justify-items-center showBox"
                id="chatBox">
-               <div class="relative h-full rounded-t-lg w-full bg-white">
-                  <div class="text-center text-4xl mt-1">Chat</div>
+               <div
+                  class="relative h-full rounded-t-lg w-full bg-white bg-opacity-75">
+                  <div class="text-center text-4xl mt-1" id="chatTitle">
+                     Chat
+                  </div>
                   <button class="absolute right-2 bottom-2" id="closeChatBtn">
                      <img src="../public/img/closeIcon.png" alt="" />
                   </button>
@@ -240,7 +243,7 @@
                   id="messages"></div>
                <div class="w-full rounded-b-lg">
                   <div
-                     class="flex items-center bg-white mx-2 px-2 rounded-full bg-opacity-40">
+                     class="flex items-center bg-white mx-2 px-2 rounded-full bg-opacity-75">
                      <input
                         class="w-full h-fit m-1 text-lg bg-none"
                         type="text"
