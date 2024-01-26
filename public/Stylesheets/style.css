@@ -463,9 +463,14 @@ input::-webkit-inner-spin-button {
    font-family: ChatFont;
 }
 
+#chatTitle {
+   font-family: TicTacToeFont;
+}
 #chatBox {
    visibility: hidden;
    box-shadow: 0px 0px 0px 3px #000000;
+   background-image: url("../img/chatBackground.png");
+   background-size: 288px 384px;
 }
 
 #chatBox.showBox {

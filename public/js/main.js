@@ -112,16 +112,17 @@ function activeRound() {
    //ROUND (REQUEST)
    document.getElementById("ready").addEventListener("click", function () {
       let roundNumber = document.getElementById("roundInput").value
+      if (roundNumber !== "") {
+         document.getElementById("ready").style.display = "none"
+         document.getElementById("roundInput").disabled = true
+         document.querySelector("#waitGif").classList.remove("hidden")
 
-      document.getElementById("ready").style.display = "none"
-      document.getElementById("roundInput").disabled = true
-      document.querySelector("#waitGif").classList.remove("hidden")
-
-      socket.emit("round", {
-         round: roundNumber,
-         roomNumber: roomNumber,
-         myValue: myValue,
-      })
+         socket.emit("round", {
+            round: roundNumber,
+            roomNumber: roomNumber,
+            myValue: myValue,
+         })
+      }
    })
 
    //ROUND (RESPONSE)
@@ -387,9 +388,10 @@ function activeChat() {
          }, 450)
       })
 
+   //SEND MY MESSAGE
    document.querySelector("#SendBtn").addEventListener("click", function () {
       const inputText = document.querySelector("#messageInput").value
-      const message = `<div class="max-w-56 bg-blue-500 text-white mr-2 p-1 rounded-lg rounded-br-none mb-2 self-end">${inputText}</div>`
+      const message = `<div class="max-w-56 bg-gray-100 mr-2 p-1 rounded-lg rounded-br-none mb-2 self-end">${inputText}</div>`
       document
          .getElementById("messages")
          .insertAdjacentHTML("beforeend", message)
@@ -401,6 +403,7 @@ function activeChat() {
       document.querySelector("#messageInput").value = ""
    })
 
+   //RECEIVE OPPONENT MESSAGE
    socket.on("sendMessage", (e) => {
       const message = `<div class="max-w-56 bg-gray-100 ml-2 p-1 rounded-lg rounded-bl-none mb-2 self-start">${e}</div>`
 

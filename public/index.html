@@ -78,9 +78,10 @@
                      Enter Your Name
                   </label>
                   <input
-                     class="gameInput w-2/3 items-center m-auto my-7 rounded-xl text-lg py-1 md:text-3xl lg:text-4xl md:py-2 md:w-2/3 md:rounded-2xl"
+                     class="gameInput placeholder:text-3xl placeholder:opacity-50 w-2/3 items-center m-auto my-7 rounded-xl text-lg py-1 md:text-3xl lg:text-4xl md:py-2 md:w-2/3 md:rounded-2xl"
                      type="text"
-                     id="nameInput" />
+                     id="nameInput"
+                     placeholder="Username" />
                   <div id="searchForm">
                      <button
                         class="gameButton bg-yellow-400 m-auto my-2 mb-16 p-3 w-3/5 rounded-xl text-xl text-white md:p-5 md:text-3xl lg:text-4xl md:w-1/2 md:rounded-2xl"
@@ -145,9 +146,10 @@
                      Round Number
                   </label>
                   <input
-                     class="gameInput w-2/3 items-center m-auto my-7 rounded-xl text-lg py-1 md:text-3xl lg:text-4xl md:py-2 md:w-2/3 md:rounded-2xl"
-                     type="text"
-                     id="roundInput" />
+                     class="gameInput placeholder:text-3xl placeholder:opacity-50 w-2/3 items-center m-auto my-7 rounded-xl text-lg py-1 md:text-3xl lg:text-4xl md:py-2 md:w-2/3 md:rounded-2xl"
+                     type="number"
+                     id="roundInput"
+                     placeholder="??" />
                   <button
                      class="gameButton bg-yellow-400 m-auto my-2 p-3 w-3/5 rounded-xl text-xl text-white md:p-5 md:text-3xl lg:text-4xl md:w-1/2 md:rounded-2xl"
                      id="ready">
@@ -217,7 +219,7 @@
       <!--  FINISH BOARD  -->
 
       <!--  START ONLINE CHAT  -->
-      <div class="" id="chatSection">
+      <div class="hidden" id="chatSection">
          <button class="fixed left-5 bottom-5" id="chatBtn">
             <img
                class="w-12 h-12"
@@ -225,7 +227,7 @@
                alt="chatIcon" />
          </button>
 
-         <div class="relative chatFont font-medium" id="chatContainer">
+         <div class="relative chatFont font-medium hidden" id="chatContainer">
             <div
                class="fixed rounded-lg bottom-6 left-8 fixed w-72 h-96 grid grid-rows-8 justify-items-center showBox"
                id="chatBox">
