@@ -1,4 +1,4 @@
-# Tic Tac Toe - Multipllyer
+# Tic Tac Toe - Multiplayer
 
 ![Tic Tac Toe Game Description](https://github.com/ali36saadat/tic-tac-toe-multiplayer/assets/139570075/e6c62763-8dbc-4a84-a7b0-2b006a6c3a0c)
 
@@ -8,10 +8,10 @@ In this project, we implemented the Tic Tac Toe Multiplayer game using JavaScrip
 
 # Installation Process
 
-1. Open the terminal and write "npm i" or "npm install"
-2. Write "node app.js"
-3. Open the browser and write "http://localhost:3000"
-4. Enjoy it...
+1. Open the terminal and type command "npm i" or "npm install" ( Make sure to have Node.js(TLS) installed before type commands )
+2. After that, type command "node app.js"
+3. Open the browser and type address "http://localhost:3000"
+4. Enjoy it...😃
 
 # Detail
   
