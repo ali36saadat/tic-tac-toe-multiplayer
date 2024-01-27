@@ -1,12 +1,12 @@
 /* FONTS */
 @font-face {
    font-family: "TicTacToeFont";
-   src: url("../fonts/CREABBB_.TTF");
+   src: url("/fonts/CREABBB_.TTF");
 }
 
 @font-face {
    font-family: "ChatFont";
-   src: url("../fonts/Nunito.ttf");
+   src: url("fonts/Nunito.ttf");
 }
 
 /* TAGS */
@@ -18,7 +18,7 @@
 
 body {
    font-family: TicTacToeFont;
-   background-image: url("../img/background.png");
+   background-image: url("img/background.png");
    background-repeat: no-repeat;
    background-attachment: fixed;
    background-size: cover;
