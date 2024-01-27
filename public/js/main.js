@@ -165,13 +165,13 @@ function activePlaying() {
    document.querySelectorAll(".btn").forEach((e) => {
       e.addEventListener("click", function () {
          if (tip == myValue) {
+            lockBoard()
             e.classList.add("cursor-pointer")
             socket.emit("playing", {
                roomNumber: roomNumber,
                value: myValueIcon,
                id: e.id,
             })
-            lockBoard()
          } else {
             e.classList.remove("cursor-pointer")
             snackFunc()
