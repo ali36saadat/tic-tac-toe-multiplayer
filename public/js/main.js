@@ -165,7 +165,12 @@ function activePlaying() {
    document.querySelectorAll(".btn").forEach((e) => {
       e.addEventListener("click", function () {
          if (tip == myValue) {
-            lockBoard()
+            document.querySelectorAll(".btn").forEach((e) => {
+               e.disabled = false
+               e.classList.remove("cursor-pointer")
+               e.classList.add("cursor-default")
+            })
+
             e.classList.add("cursor-pointer")
             socket.emit("playing", {
                roomNumber: roomNumber,
@@ -349,15 +354,6 @@ function activePlaying() {
             }
          })
       }
-   }
-
-   //LOCK BOARD
-   function lockBoard() {
-      document.querySelectorAll(".btn").forEach((e) => {
-         e.disabled = false
-         e.classList.remove("cursor-pointer")
-         e.classList.add("cursor-default")
-      })
    }
 
    //SNACKBAR
