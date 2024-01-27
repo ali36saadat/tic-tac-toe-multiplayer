@@ -166,12 +166,12 @@ function activePlaying() {
       e.addEventListener("click", function () {
          if (tip == myValue) {
             e.classList.add("cursor-pointer")
+            // e.innerText = myValueIcon
             socket.emit("playing", {
                roomNumber: roomNumber,
                value: myValueIcon,
                id: e.id,
             })
-            turn()
          } else {
             e.classList.remove("cursor-pointer")
             snackFunc()
@@ -208,6 +208,7 @@ function activePlaying() {
       foundObject.p2.p2move = ""
       foundObject.sum = 1
 
+      turn()
       if (check(foundObject.sum)) {
          e.p1.p1move = ""
          e.p2.p2move = ""
