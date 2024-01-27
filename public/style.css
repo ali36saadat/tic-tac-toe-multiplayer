@@ -1,7 +1,7 @@
 /* FONTS */
 @font-face {
    font-family: "TicTacToeFont";
-   src: url("/fonts/CREABBB_.TTF");
+   src: url("fonts/CREABBB_.TTF");
 }
 
 @font-face {
@@ -117,7 +117,7 @@ input::-webkit-inner-spin-button {
 .boardPage {
    box-shadow: -4px 4px 0px 2px #000000, 0px 4px 0px 2px #000000,
       -4px 0px 0px 2px #000000, 0px 0px 0px 2px #000000;
-   background-image: url("../img/backgroundPattern.png");
+   background-image: url("img/backgroundPattern.png");
    background-size: 24rem;
    width: 480px;
 }
@@ -125,7 +125,7 @@ input::-webkit-inner-spin-button {
 .pointBoard {
    box-shadow: -4px 4px 0px 2px #000000, 0px 4px 0px 2px #000000,
       -4px 0px 0px 2px #000000, 0px 0px 0px 2px #000000;
-   background-image: url("../img/backgroundPattern.png");
+   background-image: url("img/backgroundPattern.png");
    background-size: 10rem;
 }
 
@@ -469,7 +469,7 @@ input::-webkit-inner-spin-button {
 #chatBox {
    visibility: hidden;
    box-shadow: 0px 0px 0px 3px #000000;
-   background-image: url("../img/chatBackground.png");
+   background-image: url("img/chatBackground.png");
    background-size: 288px 384px;
 }
 
@@ -484,7 +484,7 @@ input::-webkit-inner-spin-button {
 }
 
 #messages {
-   background-image: url("/img/chatBackground.png");
+   background-image: url("img/chatBackground.png");
    background-size: cover;
 }
 
