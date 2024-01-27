@@ -1,0 +1,516 @@
+/* FONTS */
+@font-face {
+   font-family: "TicTacToeFont";
+   src: url("../fonts/CREABBB_.TTF");
+}
+
+@font-face {
+   font-family: "ChatFont";
+   src: url("../fonts/Nunito.ttf");
+}
+
+/* TAGS */
+
+* {
+   margin: 0;
+   padding: 0;
+}
+
+body {
+   font-family: TicTacToeFont;
+   background-image: url("../img/background.png");
+   background-repeat: no-repeat;
+   background-attachment: fixed;
+   background-size: cover;
+   display: grid;
+   place-items: center;
+}
+
+h1 {
+   margin: 50px 0 50px 0;
+   font-size: 3rem;
+}
+
+input {
+   margin-bottom: 20px;
+   padding: 5px;
+   font-size: 1.2rem;
+}
+
+button {
+   font-size: 1.2rem;
+   margin-bottom: 10px;
+}
+
+img {
+   width: 30px;
+   user-select: none;
+   user-drag: none;
+   -drag: none;
+   -moz-user-select: none;
+   -webkit-user-drag: none;
+   -webkit-user-select: none;
+   -ms-user-select: none;
+}
+
+input:focus {
+   outline: none;
+}
+
+input {
+   -moz-appearance: textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+   -webkit-appearance: none;
+   margin: 0;
+}
+
+/* CLASS */
+.btn {
+   font-size: 4.5rem;
+   width: 4rem;
+   height: 4rem;
+   color: #fcd015;
+   text-shadow: -2px 2px #000000, 0px 2px #000000, -2px 0px #000000;
+   cursor: pointer;
+   background-color: #c9f9fc;
+   box-shadow: -4px 4px 0px 2px #000000, 0px 4px 0px 2px #000000,
+      -4px 0px 0px 2px #000000, 0px 0px 0px 2px #000000;
+   border-radius: 6px;
+}
+
+.btn:hover {
+   background-color: #b4e0e2;
+}
+
+.inputJoinRoom {
+   background-color: #b4e0e2;
+}
+
+.joinBtn {
+   text-shadow: -2px 2px #000000, 0px 2px #000000, -2px 0px #000000;
+}
+
+.title {
+   text-shadow: -2px 2px #000000, 0px 2px #000000, -2px 0px #000000;
+}
+
+.gameInput {
+   box-shadow: 0px 0px 0px 2px #000000;
+   background-color: #c9f9fc;
+   text-align: center;
+}
+
+.gameInput:disabled {
+   box-shadow: none;
+   background: none;
+}
+
+.gameButton {
+   box-shadow: -4px 4px 0px 2px #000000, 0px 4px 0px 2px #000000,
+      -4px 0px 0px 2px #000000, 0px 0px 0px 2px #000000;
+   text-shadow: -2px 2px #000000, 0px 2px #000000, -2px 0px #000000;
+}
+
+.boardPage {
+   box-shadow: -4px 4px 0px 2px #000000, 0px 4px 0px 2px #000000,
+      -4px 0px 0px 2px #000000, 0px 0px 0px 2px #000000;
+   background-image: url("../img/backgroundPattern.png");
+   background-size: 24rem;
+   width: 480px;
+}
+
+.pointBoard {
+   box-shadow: -4px 4px 0px 2px #000000, 0px 4px 0px 2px #000000,
+      -4px 0px 0px 2px #000000, 0px 0px 0px 2px #000000;
+   background-image: url("../img/backgroundPattern.png");
+   background-size: 10rem;
+}
+
+.pointTitle {
+   text-shadow: -3px 3px #000000, 0px 3px #000000, -3px 0px #000000;
+   overflow: hidden;
+}
+
+.pointTitle-Small {
+   text-shadow: -2px 2px #000000, 0px 2px #000000, -2px 0px #000000;
+   overflow: hidden;
+}
+
+#snackbar {
+   visibility: hidden;
+   align-items: center;
+   background-color: #fcd015;
+   color: #ffffff;
+   text-align: center;
+   position: fixed;
+   margin-top: 100px;
+   box-shadow: -4px 4px 0px 2px #000000, 0px 4px 0px 2px #000000,
+      -4px 0px 0px 2px #000000, 0px 0px 0px 2px #000000;
+   border-radius: 1rem;
+   text-shadow: -2px 2px #000000, 0px 2px #000000, -2px 0px #000000;
+   user-select: none;
+   padding: 0.5rem 1rem;
+   font-size: 1rem;
+}
+
+#snackbar.show {
+   visibility: visible;
+   -webkit-animation: fadein 0.5s, fadeout 0.5s 1.5s;
+   animation: fadein 0.5s, fadeout 0.5s 1.5s;
+}
+
+@-webkit-keyframes fadein {
+   from {
+      margin-top: 75px;
+      opacity: 0;
+   }
+   to {
+      margin-top: 100px;
+      opacity: 1;
+   }
+}
+
+@keyframes fadein {
+   from {
+      margin-top: 75px;
+      opacity: 0;
+   }
+   to {
+      margin-top: 100px;
+      opacity: 1;
+   }
+}
+
+@-webkit-keyframes fadeout {
+   from {
+      margin-top: 100px;
+      opacity: 1;
+   }
+   to {
+      margin-top: 75px;
+      opacity: 0;
+   }
+}
+
+@keyframes fadeout {
+   from {
+      margin-top: 100px;
+      opacity: 1;
+   }
+   to {
+      margin-top: 75px;
+      opacity: 0;
+   }
+}
+
+@media (min-width: 768px) {
+   #snackbar {
+      align-items: center;
+      background-color: #fcd015;
+      color: #ffffff;
+      text-align: center;
+      position: fixed;
+      margin-top: 120px;
+      box-shadow: -4px 4px 0px 2px #000000, 0px 4px 0px 2px #000000,
+         -4px 0px 0px 2px #000000, 0px 0px 0px 2px #000000;
+      border-radius: 1.25rem;
+      text-shadow: -2px 2px #000000, 0px 2px #000000, -2px 0px #000000;
+      user-select: none;
+      padding: 0.75rem 1.5rem;
+      font-size: 1.25rem;
+   }
+
+   @-webkit-keyframes fadein {
+      from {
+         margin-top: 90px;
+         opacity: 0;
+      }
+      to {
+         margin-top: 120px;
+         opacity: 1;
+      }
+   }
+
+   @keyframes fadein {
+      from {
+         margin-top: 90px;
+         opacity: 0;
+      }
+      to {
+         margin-top: 120px;
+         opacity: 1;
+      }
+   }
+
+   @-webkit-keyframes fadeout {
+      from {
+         margin-top: 120px;
+         opacity: 1;
+      }
+      to {
+         margin-top: 90px;
+         opacity: 0;
+      }
+   }
+
+   @keyframes fadeout {
+      from {
+         margin-top: 120px;
+         opacity: 1;
+      }
+      to {
+         margin-top: 90px;
+         opacity: 0;
+      }
+   }
+
+   .btn {
+      font-size: 4.5rem;
+      width: 6rem;
+      height: 6rem;
+      box-shadow: -5px 3px 0px 3px #000000, 0px 3px 0px 3px #000000,
+         -5px 0px 0px 3px #000000, 0px 0px 0px 3px #000000;
+      border-radius: 6px;
+   }
+
+   .title {
+      text-shadow: -3px 3px #000000, 0px 3px #000000, -3px 0px #000000;
+   }
+
+   .gameInput {
+      box-shadow: 0px 0px 0px 3px #000000;
+   }
+
+   .gameButton {
+      box-shadow: -5px 3px 0px 3px #000000, 0px 3px 0px 3px #000000,
+         -5px 0px 0px 3px #000000, 0px 0px 0px 3px #000000;
+      text-shadow: -3px 3px #000000, 0px 3px #000000, -3px 0px #000000;
+   }
+
+   .boardPage {
+      box-shadow: -5px 3px 0px 3px #000000, 0px 3px 0px 3px #000000,
+         -5px 0px 0px 3px #000000, 0px 0px 0px 3px #000000;
+   }
+
+   .pointBoard {
+      box-shadow: -5px 3px 0px 3px #000000, 0px 3px 0px 3px #000000,
+         -5px 0px 0px 3px #000000, 0px 0px 0px 3px #000000;
+   }
+
+   .pointTitle {
+      text-shadow: -3px 3px #000000, 0px 3px #000000, -3px 0px #000000;
+   }
+
+   .pointTitle-Small {
+      text-shadow: -3px 3px #000000, 0px 3px #000000, -3px 0px #000000;
+   }
+}
+
+@media (min-width: 1024px) {
+   #snackbar {
+      margin-top: 144px;
+      box-shadow: -6px 6px 0px 3px #000000, 0px 6px 0px 3px #000000,
+         -6px 0px 0px 3px #000000, 0px 0px 0px 3px #000000;
+      border-radius: 1.25rem;
+      text-shadow: -4px 4px #000000, 0px 4px #000000, -4px 0px #000000;
+      padding: 1rem 2rem;
+      font-size: 1.5rem;
+   }
+
+   @-webkit-keyframes fadein {
+      from {
+         margin-top: 108px;
+         opacity: 0;
+      }
+      to {
+         margin-top: 144px;
+         opacity: 1;
+      }
+   }
+
+   @keyframes fadein {
+      from {
+         margin-top: 108px;
+         opacity: 0;
+      }
+      to {
+         margin-top: 144px;
+         opacity: 1;
+      }
+   }
+
+   @-webkit-keyframes fadeout {
+      from {
+         margin-top: 144px;
+         opacity: 1;
+      }
+      to {
+         margin-top: 108px;
+         opacity: 0;
+      }
+   }
+
+   @keyframes fadeout {
+      from {
+         margin-top: 144px;
+         opacity: 1;
+      }
+      to {
+         margin-top: 108px;
+         opacity: 0;
+      }
+   }
+
+   .btn {
+      font-size: 4.5rem;
+      width: 6rem;
+      height: 6rem;
+      color: #fcd015;
+      cursor: pointer;
+      background-color: #c9f9fc;
+      box-shadow: -6px 3px 0px 3px #000000, 0px 3px 0px 3px #000000,
+         -6px 0px 0px 3px #000000, 0px 0px 0px 3px #000000;
+      border-radius: 6px;
+   }
+
+   .title {
+      text-shadow: -4px 4px #000000, 0px 4px #000000, -4px 0px #000000;
+   }
+
+   .gameInput {
+      box-shadow: 0px 0px 0px 4px #000000;
+   }
+
+   .gameButton {
+      box-shadow: -6px 6px 0px 3px #000000, 0px 6px 0px 3px #000000,
+         -6px 0px 0px 3px #000000, 0px 0px 0px 3px #000000;
+      text-shadow: -4px 4px #000000, 0px 4px #000000, -4px 0px #000000;
+   }
+
+   .boardPage {
+      box-shadow: -6px 6px 0px 3px #000000, 0px 6px 0px 3px #000000,
+         -6px 0px 0px 3px #000000, 0px 0px 0px 3px #000000;
+   }
+
+   .pointBoard {
+      box-shadow: -6px 6px 0px 3px #000000, 0px 6px 0px 3px #000000,
+         -6px 0px 0px 3px #000000, 0px 0px 0px 3px #000000;
+   }
+
+   .pointTitle {
+      text-shadow: -4px 4px #000000, 0px 4px #000000, -4px 0px #000000;
+   }
+
+   .pointTitle-Small {
+      text-shadow: -4px 4px #000000, 0px 4px #000000, -4px 0px #000000;
+   }
+}
+
+.text-block {
+   bottom: 50%;
+   right: 50%;
+   transform: translate(50%, 50%);
+}
+
+@-webkit-keyframes comeup {
+   from {
+      bottom: 0;
+      opacity: 0;
+   }
+   to {
+      margin-top: 48px;
+      opacity: 1;
+   }
+}
+
+@keyframes comeup {
+   from {
+      bottom: 0;
+      opacity: 0;
+   }
+   to {
+      margin-top: 48px;
+      opacity: 1;
+   }
+}
+
+@-webkit-keyframes comedown {
+   from {
+      bottom: 48px;
+      opacity: 1;
+   }
+   to {
+      margin-top: 0;
+      opacity: 0;
+   }
+}
+
+@keyframes comedown {
+   from {
+      bottom: 48px;
+      opacity: 1;
+   }
+   to {
+      margin-top: 0;
+      opacity: 0;
+   }
+}
+
+.chatFont {
+   font-family: ChatFont;
+}
+
+#chatTitle {
+   font-family: TicTacToeFont;
+}
+#chatBox {
+   visibility: hidden;
+   box-shadow: 0px 0px 0px 3px #000000;
+   background-image: url("../img/chatBackground.png");
+   background-size: 288px 384px;
+}
+
+#chatBox.showBox {
+   visibility: visible;
+   animation: comeup 0.5s;
+}
+
+#chatBox.hideBox {
+   visibility: visible;
+   animation: comedown 0.5s;
+}
+
+#messages {
+   background-image: url("/img/chatBackground.png");
+   background-size: cover;
+}
+
+/* width */
+#messages::-webkit-scrollbar {
+   width: 5px;
+}
+
+/* Track */
+#messages::-webkit-scrollbar-track {
+   background: #f1f1f1;
+}
+
+/* Handle */
+#messages::-webkit-scrollbar-thumb {
+   background: red;
+}
+
+/* Handle on hover */
+#messages::-webkit-scrollbar-thumb:hover {
+   background: red;
+}
+
+#messageInput,
+#messageInput:focus,
+#messageInput:active {
+   background: none;
+   -webkit-appearance: none;
+}
