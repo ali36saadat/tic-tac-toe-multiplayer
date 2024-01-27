@@ -166,7 +166,7 @@ function activePlaying() {
       e.addEventListener("click", function () {
          if (tip == myValue) {
             document.querySelectorAll(".btn").forEach((e) => {
-               e.disabled = false
+               e.disabled = true
                e.classList.remove("cursor-pointer")
                e.classList.add("cursor-default")
             })
