@@ -166,12 +166,12 @@ function activePlaying() {
       e.addEventListener("click", function () {
          if (tip == myValue) {
             e.classList.add("cursor-pointer")
-            // e.innerText = myValueIcon
             socket.emit("playing", {
                roomNumber: roomNumber,
                value: myValueIcon,
                id: e.id,
             })
+            lockBoard()
          } else {
             e.classList.remove("cursor-pointer")
             snackFunc()
@@ -349,6 +349,15 @@ function activePlaying() {
             }
          })
       }
+   }
+
+   //LOCK BOARD
+   function lockBoard() {
+      document.querySelectorAll(".btn").forEach((e) => {
+         e.disabled = false
+         e.classList.remove("cursor-pointer")
+         e.classList.add("cursor-default")
+      })
    }
 
    //SNACKBAR
