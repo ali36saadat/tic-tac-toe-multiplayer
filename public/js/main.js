@@ -331,31 +331,6 @@ function activePlaying() {
       })
    }
 
-   //CHANGE TURN
-   function turn() {
-      tip == 1 ? (tip = 2) : (tip = 1)
-
-      if (tip != myValue) {
-         document.querySelector("#turnName").textContent = "Opponent"
-         document.querySelectorAll(".btn").forEach((e) => {
-            e.disabled = false
-            e.classList.remove("cursor-pointer")
-            e.classList.add("cursor-default")
-         })
-      } else {
-         document.querySelector("#turnName").textContent = "You"
-         document.querySelectorAll(".btn").forEach((e) => {
-            e.classList.remove("cursor-default")
-            e.classList.add("cursor-pointer")
-            if (e.value != "") {
-               e.classList.remove("cursor-pointer")
-               e.classList.add("cursor-default")
-               e.disabled = true
-            }
-         })
-      }
-   }
-
    //SNACKBAR
    function snackFunc() {
       if (snackbarValue === false) {
@@ -370,6 +345,31 @@ function activePlaying() {
    }
 
    activeLobbyButton()
+}
+
+//CHANGE TURN
+function turn() {
+   tip == 1 ? (tip = 2) : (tip = 1)
+
+   if (tip != myValue) {
+      document.querySelector("#turnName").textContent = "Opponent"
+      document.querySelectorAll(".btn").forEach((e) => {
+         e.disabled = false
+         e.classList.remove("cursor-pointer")
+         e.classList.add("cursor-default")
+      })
+   } else {
+      document.querySelector("#turnName").textContent = "You"
+      document.querySelectorAll(".btn").forEach((e) => {
+         e.classList.remove("cursor-default")
+         e.classList.add("cursor-pointer")
+         if (e.value != "") {
+            e.classList.remove("cursor-pointer")
+            e.classList.add("cursor-default")
+            e.disabled = true
+         }
+      })
+   }
 }
 
 //ACTIVE CHAT
