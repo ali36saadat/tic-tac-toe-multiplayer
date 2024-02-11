@@ -17,7 +17,7 @@ In this project, we implemented the Tic Tac Toe Multiplayer game using JavaScrip
   
 - 👨🏻‍💻 Developed by : Ali Saadat
 
-- 💻 Technologies Used : HTML, CSS, Javascript, Node js, Socket IO
+- 💻 Technologies Used : HTML, CSS, Tailwind, Javascript, Node js, Socket IO
   
 - 🖼️ Initial UI : [André Castelo Branco - Figma](https://www.figma.com/community/file/893942075601804557)
 
