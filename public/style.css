@@ -484,9 +484,8 @@ input::-webkit-inner-spin-button {
 }
 
 #messages {
-   background-image: url("img/chatBackground.jpg");
+   background-image: url("img/chatBackground.png");
    background-size: cover;
-   background-repeat: repeat-y;
 }
 
 /* width */
